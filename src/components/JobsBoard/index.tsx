@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { searchJobs } from "../../api";
 import type { SearchJobsResponseData, JobDTO } from "../../api";
 import { useApi } from "../../hooks/useApi";
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const JobsBoard = () => {
-  const [page, setPage] = useState(0);
+  const [page] = useState(0);
   const [params, setParams] = useState<any>({
     query: {
       page,

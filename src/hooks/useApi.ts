@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AxiosResponse } from "axios";
 
 type ApiFunction = (params: ApiParams) => Promise<AxiosResponse>;
