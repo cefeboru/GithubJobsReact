@@ -30,6 +30,12 @@ const useStyles = makeStyles((theme) => ({
   innerLoader: {
     paddingTop: "25px",
   },
+  pageTitle: {
+    paddingBottom: theme.spacing(2),
+  },
+  selectsContainer: {
+    paddingBottom: theme.spacing(2),
+  }
 }));
 
 const JobsBoard = () => {
@@ -66,14 +72,19 @@ const JobsBoard = () => {
 
   return (
     <Container maxWidth="md" className={classes.jobsList}>
-      <Grid container spacing={2} justify="center">
+      <Typography className={classes.pageTitle} variant="h6">Search jobs from Github's public API</Typography>
+      <Grid className={classes.selectsContainer} container spacing={2} justify="center">
         <Grid item xs>
           <ProgrammingLanguageSelect
             onChange={handleSelectChange("description")}
+            disabled={isLoading}
           />
         </Grid>
         <Grid item xs>
-          <CitySelect onChange={handleSelectChange("city")} />
+          <CitySelect
+            onChange={handleSelectChange("city")}
+            disabled={isLoading}
+          />
         </Grid>
       </Grid>
       {jobs.map((job) => (

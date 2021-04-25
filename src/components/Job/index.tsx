@@ -17,10 +17,13 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     margin: theme.spacing(1),
   },
+  jobTitle: {
+    fontWeight: 'bold',
+  }
 }));
 
 const Job = (props: JobProps) => {
-  const { title, location, type, company, created_at } = props.job;
+  const { title, location, type, company, created_at, id } = props.job;
   const classes = useStyles();
   return (
     <div className={`${classes.root} ${props.className}`}>
@@ -28,10 +31,10 @@ const Job = (props: JobProps) => {
         <Grid container direction="column" justify="space-between">
           <Grid container direction="row" justify="flex-end" >
             <Grid container item direction="column" xs>
-              <Grid item xs={6}>
-                <TypoGraphy>{title}</TypoGraphy>
+              <Grid item>
+                <a target="_blanck" href={`https://jobs.github.com/positions/${id}`}><TypoGraphy className={classes.jobTitle}>{title}</TypoGraphy></a>
               </Grid>
-              <Grid>
+              <Grid item>
                 <div>
                   {company} - {type}
                 </div>
